@@ -1,109 +1,45 @@
+# 🖥️ 24-Bit Two-Pass Assembler
+**C Systems Programming Laboratory Project | OpenU 2025A**
 
+## 📖 Overview
+[cite_start]This project is a high-performance, modular Assembler developed in **ANSI C** for a theoretical 24-bit architecture computer[cite: 13, 16]. [cite_start]The software translates symbolic assembly language into executable binary machine code through a systematic multi-stage pipeline[cite: 58, 61, 347].
 
-🖥️ 24-Bit Two-Pass Assembler
-C Systems Programming Laboratory Project | OpenU 2025A
-
-📖 Overview
-This project is a high-performance, modular Assembler developed in ANSI C for a custom 24-bit architecture. The software translates symbolic assembly language into binary machine code through a systematic multi-stage pipeline.
-
-
-It is designed to handle a CPU with 8 general-purpose registers (
-r0−r7
-) and a 24-bit memory word model.
-
-
-✨ Core Features
-1. Pre-Assembler (Macro Expansion)
-Scans the initial .as file for macro definitions (mcro).
-
-
-Expands macros into a processed .am file ready for assembly.
-
-
-Implements dynamic storage for macro names and content using linked lists.
-
-
-2. First Pass (Symbol Analysis)
-Identifies labels and populates the Symbol Table.
-
-
-Calculates memory offsets for the Instruction Counter (IC) and Data Counter (DC).
-
-
-Validates operand legality and addressing modes.
-
-
-3. Second Pass (Binary Synthesis)
-Encodes final 24-bit binary words using the A.R.E (Absolute, Relocatable, External) model.
-
-
-Calculates final relative distances for jump instructions.
-
-
-Generates the memory image and supporting export tables.
-
-
-🛠️ Technical Specifications
-
-Instruction Set: 16 base opcodes (e.g., mov, add, lea, jmp, stop).
+[cite_start]The system simulates a CPU with **8 general-purpose registers** (`r0`-`r7`) and a memory space consisting of **24-bit words**[cite: 72, 73, 76].
 
 
 
-Addressing Modes: Immediate (#), Direct (Label), Relative (&), and Register Direct.
+## ✨ Core Features
 
+### 1. Pre-Assembler (Macro Expansion)
+* [cite_start]Scans the initial source files (`.as`) for macro definitions (`mcro`)[cite: 152, 155, 174].
+* [cite_start]Expands macros into a processed `.am` file ready for the assembly stages[cite: 173, 485].
+* [cite_start]Implements dynamic memory allocation for macro storage to ensure scalability and efficiency[cite: 646].
 
+### 2. First Pass (Symbol Analysis)
+* [cite_start]Identifies labels and populates the **Symbol Table** using linked lists[cite: 199, 348, 646].
+* [cite_start]Calculates memory offsets for the Instruction Counter (IC) and Data Counter (DC)[cite: 373, 426].
+* [cite_start]Validates operand legality and ensures addressing modes are compatible with opcodes[cite: 410, 420, 446].
 
-Memory Image: Starts at address 100.
+### 3. Second Pass (Binary Synthesis)
+* [cite_start]Encodes final 24-bit binary words using the **A.R.E (Absolute, Relocatable, External)** encoding model[cite: 105, 107, 291].
+* [cite_start]Resolves symbol addresses and calculates relative distances for jump instructions[cite: 125, 360, 477].
+* [cite_start]Generates the final hexadecimal memory image for the object file[cite: 86, 568].
 
+## 🛠️ Technical Specifications
+* [cite_start]**Instruction Set:** Supports 16 base opcodes including `mov`, `add`, `lea`, `jmp`, and `stop`[cite: 89, 93].
+* [cite_start]**Addressing Modes:** Supports Immediate (#), Direct, Relative (&), and Register Direct methods[cite: 110, 125, 127].
+* [cite_start]**Memory Management:** The code is designed to be loaded starting from address **100**[cite: 352, 373, 427].
+* [cite_start]**Data Handling:** Integrated support for `.data` (integers) and `.string` (ASCII) directives[cite: 194, 210, 211].
 
+## 📂 Project Structure
+* [cite_start]`src/`: Implementation source files (`.c`)[cite: 15].
+* [cite_start]`include/`: Header files for data structures and function prototypes (`.h`)[cite: 15].
+* [cite_start]`Makefile`: Automates the build process with strict compilation flags: `-Wall -ansi -pedantic`[cite: 16].
+* [cite_start]`*.as`: Sample assembly source files used for system testing[cite: 19, 490].
 
-Data Support: Handling for .data (integers) and .string (ASCII).
+## 🚀 Getting Started
 
-
-📂 Project Structure
-
-src/: Source code implementation files (.c).
-
-
-
-include/: Header files for data structures and function prototypes (.h).
-
-
-Makefile: Automates the build process with strict flags: -Wall -ansi -pedantic.
-
-
-*.as: Sample assembly source files for testing.
-
-🚀 Getting Started
-Compilation
-Build the project using the provided Makefile:
-
-Bash
-
+### Compilation
+[cite_start]Build the project using the included Makefile[cite: 16]:
+```bash
 make
-Usage
-Execute the assembler by providing the filenames (without extensions):
-
-Bash
-
-./assembler file1 file2
-📊 Generated Output Files
-
-.am: Source file after macro expansion.
-
-
-.ob: Object file containing the memory image in hexadecimal.
-
-
-
-.ent: Entry symbols and their addresses.
-
-
-
-.ext: External symbol references and usage locations.
-
-
-Disclaimer: This project was developed by me as part of the academic requirements for the Systems Programming Laboratory course (20465). It strictly adheres to the standard C library.
-+1
-
-האם תרצי שאשלח לך גם רשימה של Topics (תגיות) באנגלית כדי שיהיה קל יותר למצוא את הפרויקט שלך בחיפוש?
