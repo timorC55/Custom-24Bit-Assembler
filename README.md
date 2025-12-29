@@ -41,5 +41,19 @@
 
 ### Compilation
 [cite_start]Build the project using the included Makefile[cite: 16]:
+
+### Usage
+[cite_start]Execute the assembler by providing filenames as command-line arguments without extensions[cite: 482, 491, 653]:
+./assembler file1 file2
+
+## 📊 Generated Output Files
+[cite_start]The assembler creates the following files for each valid input[cite: 484]:
+1. **.am**: [cite_start]The source file after macro expansion[cite: 174, 485].
+2. **.ob**: [cite_start]Object file containing the machine code in hexadecimal format[cite: 86, 486, 560].
+3. **.ent**: [cite_start]Table of entries for symbols defined as .entry[cite: 488, 570].
+4. **.ext**: [cite_start]Table of external references for symbols defined as .extern[cite: 487, 573].
+
+---
+**Disclaimer:** [cite_start]This project was developed for academic purposes as part of the Systems Programming Laboratory course (20465)[cite: 2, 61]. [cite_start]It strictly adheres to the ISO C90 (ANSI C) standard and the original task specifications[cite: 16, 651].
 ```bash
 make
